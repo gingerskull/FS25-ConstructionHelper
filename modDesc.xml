@@ -22,6 +22,7 @@
         <sourceFile filename="src/utils/InputUtils.lua" />
         <sourceFile filename="src/core/InputManager.lua" />
         <sourceFile filename="src/features/Snapping.lua" />
+        <sourceFile filename="src/features/HelpTooltip.lua" />
         <sourceFile filename="src/features/DisplayCoords.lua" />
         <sourceFile filename="src/features/Footprint.lua" />
         <sourceFile filename="src/main.lua" />

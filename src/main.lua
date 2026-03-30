@@ -25,8 +25,8 @@ local function init()
                 -- Render coordinates text
                 ConstructionCoords.DisplayCoords.draw(brush)
 
-                -- Draw building footprint on the ground
-                ConstructionCoords.Footprint.draw(brush)
+                -- Draw building footprint on the ground (DISABLED)
+                -- ConstructionCoords.Footprint.draw(brush)
             end
 
             print("--> Mod Loaded: Construction Coords modular architecture initialized.")

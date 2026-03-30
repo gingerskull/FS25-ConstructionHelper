@@ -14,24 +14,34 @@ function ConstructionCoords.DisplayCoords.draw(brush)
             local rSnap = rMode.increments[rMode.index]
             local rotDeg = math.deg(rotY)
 
-            local tHint = tMode.binding and (" [" .. tMode.binding.displayText .. "]") or ""
-            local rHint = rMode.binding and (" [" .. rMode.binding.displayText .. "]") or ""
-
-            local coordText, rotText
+            local coordText
+            local snapLines = {}
 
             if brush.snappingActive then
                 local snappedX, snappedZ, snappedRotDeg = ConstructionCoords.Snapping.applyManualSnap(rootNode, x, y, z, rotX, rotDeg, rotZ, tSnap, rSnap)
 
-                coordText = string.format("X: %.2f | Y: %.2f | Snap: %sm%s", snappedX, snappedZ, tostring(tSnap), tHint)
-                rotText = string.format("Rot: %.1f° | Snap: %s°%s", snappedRotDeg, tostring(rSnap), rHint)
+                coordText = string.format("X: %.2f | Y: %.2f | Rot: %.1f°", snappedX, snappedZ, snappedRotDeg)
+
+                if tMode.binding then
+                    table.insert(snapLines, {
+                        label = string.format("SNAP POSITION: %sm", tostring(tSnap)),
+                        keys = tMode.binding.displayParts,
+                    })
+                end
+
+                if rMode.binding then
+                    table.insert(snapLines, {
+                        label = string.format("SNAP ROTATION: %s°", tostring(rSnap)),
+                        keys = rMode.binding.displayParts,
+                    })
+                end
             else
-                coordText = string.format("X: %.2f | Y: %.2f", x, z)
-                rotText = string.format("Rot: %.1f°", rotDeg)
+                coordText = string.format("X: %.2f | Y: %.2f | Rot: %.1f°", x, z, rotDeg)
             end
 
-            if g_currentMission ~= nil and g_currentMission.hud ~= nil and g_currentMission.hud.inputHelp ~= nil and g_currentMission.hud.inputHelp.extraHelpTexts ~= nil then
-                table.insert(g_currentMission.hud.inputHelp.extraHelpTexts, coordText)
-                table.insert(g_currentMission.hud.inputHelp.extraHelpTexts, rotText)
+            if g_currentMission ~= nil and g_currentMission.hud ~= nil and g_currentMission.hud.inputHelp ~= nil then
+                local extension = ConstructionCoords.HelpTooltip.create(coordText, snapLines)
+                table.insert(g_currentMission.hud.inputHelp.helpExtensions, extension)
             end
         end
     end
