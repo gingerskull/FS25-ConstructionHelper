@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modDesc descVersion="107">
+    <author>Your Name</author>
+    <version>1.0.0.0</version>
+    
+    <title>
+        <en>Construction Coordinates</en>
+        <de>Baukoordinaten</de>
+    </title>
+    
+    <description>
+        <en>Displays precise X, Y, and Z world coordinates while in construction mode to help with exact building alignment and placement.</en>
+        <de>Zeigt genaue X-, Y- und Z-Weltkoordinaten im Baumodus an, um bei der exakten Ausrichtung und Platzierung von Gebäuden zu helfen.</de>
+    </description>
+    
+    <iconFilename>icon.dds</iconFilename>
+    
+    <multiplayer supported="true"/>
+    
+    <extraSourceFiles>
+        <sourceFile filename="src/ConstructionCoords.lua" />
+        <sourceFile filename="src/utils/InputUtils.lua" />
+        <sourceFile filename="src/core/InputManager.lua" />
+        <sourceFile filename="src/features/Snapping.lua" />
+        <sourceFile filename="src/features/DisplayCoords.lua" />
+        <sourceFile filename="src/features/Footprint.lua" />
+        <sourceFile filename="src/main.lua" />
+    </extraSourceFiles>
+    
+    <actions>
+        <action name="CONSTRUCT_SNAP_CYCLE" category="VEHICLE" />
+        <action name="CONSTRUCT_ROT_SNAP_CYCLE" category="VEHICLE" />
+    </actions>
+    
+    <inputBinding>
+        <actionBinding action="CONSTRUCT_SNAP_CYCLE">
+            <binding device="KB_MOUSE_DEFAULT" input="KEY_lalt KEY_1" />
+        </actionBinding>
+        <actionBinding action="CONSTRUCT_ROT_SNAP_CYCLE">
+            <binding device="KB_MOUSE_DEFAULT" input="KEY_lalt KEY_2" />
+        </actionBinding>
+    </inputBinding>
+
+    <l10n>
+        <text name="input_CONSTRUCT_SNAP_CYCLE"><en>Cycle Position Snap</en><de>Positionsrasterung wechseln</de></text>
+        <text name="input_CONSTRUCT_ROT_SNAP_CYCLE"><en>Cycle Rotation Snap</en><de>Rotationsrasterung wechseln</de></text>
+    </l10n>
+</modDesc>
