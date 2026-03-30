@@ -46,7 +46,7 @@ function ConstructionCoords.HelpTooltip.create(coordText, snapLines)
 
         -- Line 1: coordinate text (plain, no key caps)
         bgOverlay:renderCustom(posX, posY)
-        setTextBold(false)
+        setTextBold(true)
         setTextAlignment(RenderText.ALIGN_LEFT)
         setTextColor(1, 1, 1, 1)
         renderText(posX + textOffsetX, posY + textOffsetY, textSize, self._coordText)
@@ -57,7 +57,7 @@ function ConstructionCoords.HelpTooltip.create(coordText, snapLines)
             bgOverlay:renderCustom(posX, posY)
 
             -- Label text on the left
-            setTextBold(false)
+            setTextBold(true)
             setTextAlignment(RenderText.ALIGN_LEFT)
             setTextColor(1, 1, 1, 1)
             renderText(posX + textOffsetX, posY + textOffsetY, textSize, line.label)

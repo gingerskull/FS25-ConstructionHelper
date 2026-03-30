@@ -24,7 +24,7 @@ function ConstructionCoords.DisplayCoords.draw(brush)
 
                 if tMode.binding then
                     table.insert(snapLines, {
-                        label = string.format("SNAP POSITION: %sm", tostring(tSnap)),
+                        label = string.format("SNAP POSITION: %sM", tostring(tSnap)),
                         keys = tMode.binding.displayParts,
                     })
                 end
@@ -36,7 +36,7 @@ function ConstructionCoords.DisplayCoords.draw(brush)
                     })
                 end
             else
-                coordText = string.format("X: %.2f | Y: %.2f | Rot: %.1f°", x, z, rotDeg)
+                coordText = string.format("X: %.2f | Y: %.2f | ROT: %.1f°", x, z, rotDeg)
             end
 
             if g_currentMission ~= nil and g_currentMission.hud ~= nil and g_currentMission.hud.inputHelp ~= nil then
