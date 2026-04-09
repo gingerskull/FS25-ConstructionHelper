@@ -6,6 +6,13 @@ ConstructionCoords.InputManager.modes = {
     rot = { action = "CONSTRUCT_ROT_SNAP_CYCLE", increments = {1, 5, 10, 15, 30, 45}, index = 4, binding = nil, keyWasDown = false }
 }
 
+-- Local snap toggle state (not a cycle mode)
+ConstructionCoords.InputManager.localSnapToggle = {
+    action = "CONSTRUCT_LOCAL_SNAP_TOGGLE",
+    binding = nil,
+    keyWasDown = false
+}
+
 --- Read the current keybindings from the game's input binding system.
 function ConstructionCoords.InputManager.refreshBinding()
     if g_inputBinding == nil then return end
@@ -17,6 +24,15 @@ function ConstructionCoords.InputManager.refreshBinding()
         else
             mode.binding = nil
         end
+    end
+
+    -- Refresh local snap toggle binding
+    local toggle = ConstructionCoords.InputManager.localSnapToggle
+    local ok, action = pcall(function() return g_inputBinding:getActionByName(toggle.action) end)
+    if ok and action ~= nil and action.primaryKeyboardInput ~= nil then
+        toggle.binding = ConstructionCoords.InputUtils.parseBinding(action.primaryKeyboardInput)
+    else
+        toggle.binding = nil
     end
 end
 
@@ -41,6 +57,23 @@ function ConstructionCoords:keyEvent(unicode, sym, modifier, isDown)
 
                     ConstructionCoords.InputManager.refreshBinding()
                 end
+            end
+        end
+    end
+
+    -- Handle local snap toggle (boolean flip, not cycle)
+    local toggle = ConstructionCoords.InputManager.localSnapToggle
+    local toggleBinding = toggle.binding
+    if toggleBinding ~= nil and toggleBinding.keySym ~= 0 then
+        if not isDown then
+            if sym == toggleBinding.keySym then toggle.keyWasDown = false end
+        else
+            local modifierMatch = toggleBinding.modifierMask == 0 or bitAND(modifier, toggleBinding.modifierMask) > 0
+            if modifierMatch and sym == toggleBinding.keySym and not toggle.keyWasDown then
+                ConstructionCoords.localSnapEnabled = not ConstructionCoords.localSnapEnabled
+                toggle.keyWasDown = true
+
+                ConstructionCoords.InputManager.refreshBinding()
             end
         end
     end

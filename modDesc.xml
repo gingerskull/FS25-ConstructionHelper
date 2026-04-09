@@ -1,16 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <modDesc descVersion="107">
-    <author>Your Name</author>
+    <author>gingerskull</author>
     <version>1.0.0.0</version>
     
     <title>
-        <en>Construction Coordinates</en>
-        <de>Baukoordinaten</de>
+        <en>Construction Helper</en>
+        <de>Bauhelfer</de>
     </title>
     
     <description>
-        <en>Displays precise X, Y, and Z world coordinates while in construction mode to help with exact building alignment and placement.</en>
-        <de>Zeigt genaue X-, Y- und Z-Weltkoordinaten im Baumodus an, um bei der exakten Ausrichtung und Platzierung von Gebäuden zu helfen.</de>
+        <en><![CDATA[Construction Helper enhances the building placement experience by providing precise coordinate display and advanced snapping controls.
+
+FEATURES:
+• Real-time coordinate display (X, Z position and rotation) in the construction HUD with 3-decimal precision
+• Customizable position snapping increments: 0.1m, 0.25m, 0.5m, 1.0m, 2.5m, 5.0m
+• Customizable rotation snapping increments: 1°, 5°, 10°, 15°, 30°, 45°
+• Local/Relative snap mode - entire grid rotates with building angle for perfect parallel alignment at any rotation
+• Native FS25 HUD integration with graphical key button overlays
+
+DEFAULT KEYBINDS:
+• LALT + 1: Cycle Position Snap - Change position grid size
+• LALT + 2: Cycle Rotation Snap - Change rotation angle step
+• LALT + 3: Toggle Local Snap Mode - Switch between world grid and building-relative snapping
+
+All keybinds can be customized in Settings > Controls.
+
+GLOBAL vs LOCAL SNAP MODE:
+• Global Mode: Building snaps to world X/Z coordinate grid (best for 90° aligned placements)
+• Local Mode: Entire snapping grid rotates with the building - objects placed at the same local grid coordinates will form perfectly parallel lines in world space, regardless of rotation angle. Ideal for creating aligned rows of buildings at any angle (30°, 45°, 60°, etc.)
+
+HOW LOCAL MODE WORKS:
+When placing multiple objects at the same rotation (e.g., 30°), they will align in straight lines parallel to each other. The grid rotates rigidly with your building, so objects placed at local grid positions (3,0), (6,0), (9,0) will form a straight line at 30° in world space.
+
+Multiplayer compatible - all changes are client-side only.]]></en>
+        <de><![CDATA[Bauhelfer verbessert das Gebäudeplatzierungserlebnis durch präzise Koordinatenanzeige und erweiterte Rastungssteuerung.
+
+FUNKTIONEN:
+• Echtzeit-Koordinatenanzeige (X, Z-Position und Rotation) im Bau-HUD mit 3 Dezimalstellen
+• Anpassbare Positionsrasterung: 0,1m, 0,25m, 0,5m, 1,0m, 2,5m, 5,0m
+• Anpassbare Rotationsrasterung: 1°, 5°, 10°, 15°, 30°, 45°
+• Lokaler/Relativer Rastungsmodus - Das gesamte Raster dreht sich mit dem Gebäudewinkel für perfekte parallele Ausrichtung bei jeder Rotation
+• Native FS25 HUD-Integration mit grafischen Tasten-Overlays
+
+STANDARD-TASTENBELEGUNGEN:
+• LALT + 1: Positionsrasterung wechseln - Rasterungsgröße ändern
+• LALT + 2: Rotationsrasterung wechseln - Rotationsschritt ändern
+• LALT + 3: Lokale Rastung umschalten - Zwischen Welt-Raster und gebäude-relativer Rastung wechseln
+
+Alle Tastenbelegungen können unter Einstellungen > Steuerung angepasst werden.
+
+GLOBALER vs LOKALER RASTUNGSMODUS:
+• Globaler Modus: Gebäude rastet am Welt-X/Z-Koordinatengitter ein (beste für 90° ausgerichtete Platzierungen)
+• Lokaler Modus: Das gesamte Rastungsraster dreht sich mit dem Gebäude - Objekte an denselben lokalen Rasterkoordinaten bilden perfekt parallele Linien im Weltraum, unabhängig vom Drehwinkel. Ideal für die Erstellung ausgerichteter Gebäudereihen unter jedem Winkel (30°, 45°, 60°, etc.)
+
+WIE DER LOKALE MODUS FUNKTIONIERT:
+Bei der Platzierung mehrerer Objekte mit derselben Rotation (z.B. 30°) richten sie sich in parallelen Geraden zueinander aus. Das Raster dreht sich starr mit Ihrem Gebäude, sodass Objekte an lokalen Rasterpositionen (3,0), (6,0), (9,0) eine gerade Linie bei 30° im Weltraum bilden.
+
+Multiplayer-kompatibel - alle Änderungen sind nur clientseitig.]]></de>
     </description>
     
     <iconFilename>icon.dds</iconFilename>
@@ -31,8 +77,9 @@
     <actions>
         <action name="CONSTRUCT_SNAP_CYCLE" category="VEHICLE" />
         <action name="CONSTRUCT_ROT_SNAP_CYCLE" category="VEHICLE" />
+        <action name="CONSTRUCT_LOCAL_SNAP_TOGGLE" category="VEHICLE" />
     </actions>
-    
+
     <inputBinding>
         <actionBinding action="CONSTRUCT_SNAP_CYCLE">
             <binding device="KB_MOUSE_DEFAULT" input="KEY_lalt KEY_1" />
@@ -40,10 +87,14 @@
         <actionBinding action="CONSTRUCT_ROT_SNAP_CYCLE">
             <binding device="KB_MOUSE_DEFAULT" input="KEY_lalt KEY_2" />
         </actionBinding>
+        <actionBinding action="CONSTRUCT_LOCAL_SNAP_TOGGLE">
+            <binding device="KB_MOUSE_DEFAULT" input="KEY_lalt KEY_3" />
+        </actionBinding>
     </inputBinding>
 
     <l10n>
         <text name="input_CONSTRUCT_SNAP_CYCLE"><en>Cycle Position Snap</en><de>Positionsrasterung wechseln</de></text>
         <text name="input_CONSTRUCT_ROT_SNAP_CYCLE"><en>Cycle Rotation Snap</en><de>Rotationsrasterung wechseln</de></text>
+        <text name="input_CONSTRUCT_LOCAL_SNAP_TOGGLE"><en>Toggle Local Snap Mode</en><de>Lokale Rasterung umschalten</de></text>
     </l10n>
 </modDesc>
