@@ -31,6 +31,8 @@ GLOBAL vs LOCAL SNAP MODE:
 HOW LOCAL MODE WORKS:
 When placing multiple objects at the same rotation (e.g., 30°), they will align in straight lines parallel to each other. The grid rotates rigidly with your building, so objects placed at local grid positions (3,0), (6,0), (9,0) will form a straight line at 30° in world space.
 
+GitHub link: https://github.com/gingerskull/FS25-ConstructionHelper
+
 ]]></en>
         <de><![CDATA[Bauhelfer verbessert das Gebäudeplatzierungserlebnis durch präzise Koordinatenanzeige und erweiterte Rastungssteuerung.
 
@@ -53,6 +55,8 @@ GLOBALER vs LOKALER RASTUNGSMODUS:
 
 WIE DER LOKALE MODUS FUNKTIONIERT:
 Bei der Platzierung mehrerer Objekte mit derselben Rotation (z.B. 30°) richten sie sich in parallelen Geraden zueinander aus. Das Raster dreht sich starr mit Ihrem Gebäude, sodass Objekte an lokalen Rasterpositionen (3,0), (6,0), (9,0) eine gerade Linie bei 30° im Weltraum bilden.
+
+GitHub link: https://github.com/gingerskull/FS25-ConstructionHelper
 
 ]]></de>
     </description>
