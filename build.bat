@@ -1,2 +1,2 @@
-del FS25_Construction_Helper.zip
-tar -a -c -f FS25_Construction_Helper.zip modDesc.xml src icon.dds
+del FS25_ConstructionHelper.zip
+tar -a -c -f FS25_ConstructionHelper.zip modDesc.xml src icon_ConstructionHelper.dds

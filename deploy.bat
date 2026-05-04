@@ -1,5 +1,5 @@
 @echo off
-set "modName=FS25_Construction_Helper.zip"
+set "modName=FS25_ConstructionHelper.zip"
 set "localDir=%USERPROFILE%\Documents\My Games\FarmingSimulator2025\mods"
 set "oneDriveDir=%USERPROFILE%\OneDrive\Documents\My Games\FarmingSimulator2025\mods"
 

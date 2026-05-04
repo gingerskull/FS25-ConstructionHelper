@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<modDesc descVersion="107">
+<modDesc descVersion="108">
     <author>gingerskull</author>
     <version>1.0.0.0</version>
     
@@ -16,7 +16,6 @@ FEATURES:
 • Customizable position snapping increments: 0.1m, 0.25m, 0.5m, 1.0m, 2.5m, 5.0m
 • Customizable rotation snapping increments: 1°, 5°, 10°, 15°, 30°, 45°
 • Local/Relative snap mode - entire grid rotates with building angle for perfect parallel alignment at any rotation
-• Native FS25 HUD integration with graphical key button overlays
 
 DEFAULT KEYBINDS:
 • LALT + 1: Cycle Position Snap - Change position grid size
@@ -32,7 +31,7 @@ GLOBAL vs LOCAL SNAP MODE:
 HOW LOCAL MODE WORKS:
 When placing multiple objects at the same rotation (e.g., 30°), they will align in straight lines parallel to each other. The grid rotates rigidly with your building, so objects placed at local grid positions (3,0), (6,0), (9,0) will form a straight line at 30° in world space.
 
-Multiplayer compatible - all changes are client-side only.]]></en>
+]]></en>
         <de><![CDATA[Bauhelfer verbessert das Gebäudeplatzierungserlebnis durch präzise Koordinatenanzeige und erweiterte Rastungssteuerung.
 
 FUNKTIONEN:
@@ -40,7 +39,6 @@ FUNKTIONEN:
 • Anpassbare Positionsrasterung: 0,1m, 0,25m, 0,5m, 1,0m, 2,5m, 5,0m
 • Anpassbare Rotationsrasterung: 1°, 5°, 10°, 15°, 30°, 45°
 • Lokaler/Relativer Rastungsmodus - Das gesamte Raster dreht sich mit dem Gebäudewinkel für perfekte parallele Ausrichtung bei jeder Rotation
-• Native FS25 HUD-Integration mit grafischen Tasten-Overlays
 
 STANDARD-TASTENBELEGUNGEN:
 • LALT + 1: Positionsrasterung wechseln - Rasterungsgröße ändern
@@ -56,10 +54,10 @@ GLOBALER vs LOKALER RASTUNGSMODUS:
 WIE DER LOKALE MODUS FUNKTIONIERT:
 Bei der Platzierung mehrerer Objekte mit derselben Rotation (z.B. 30°) richten sie sich in parallelen Geraden zueinander aus. Das Raster dreht sich starr mit Ihrem Gebäude, sodass Objekte an lokalen Rasterpositionen (3,0), (6,0), (9,0) eine gerade Linie bei 30° im Weltraum bilden.
 
-Multiplayer-kompatibel - alle Änderungen sind nur clientseitig.]]></de>
+]]></de>
     </description>
     
-    <iconFilename>icon.dds</iconFilename>
+    <iconFilename>icon_ConstructionHelper.dds</iconFilename>
     
     <multiplayer supported="true"/>
     
@@ -70,7 +68,6 @@ Multiplayer-kompatibel - alle Änderungen sind nur clientseitig.]]></de>
         <sourceFile filename="src/features/Snapping.lua" />
         <sourceFile filename="src/features/HelpTooltip.lua" />
         <sourceFile filename="src/features/DisplayCoords.lua" />
-        <sourceFile filename="src/features/Footprint.lua" />
         <sourceFile filename="src/main.lua" />
     </extraSourceFiles>
     

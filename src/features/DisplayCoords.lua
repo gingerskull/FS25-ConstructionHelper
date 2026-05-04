@@ -34,39 +34,39 @@ function ConstructionCoords.DisplayCoords.draw(brush)
 
                 if localSnapEnabled then
                     -- LOCAL MODE: Disable game position snapping, we handle it manually
-                    -- Log before/after for debugging
-                    local preX, preY, preZ = getTranslation(rootNode)
-                    local _, preRotY, _ = getRotation(rootNode)
-                    local preRot = math.deg(preRotY)
+                    -- Log before/after for debugging (DEBUG - disabled)
+                    -- local preX, preY, preZ = getTranslation(rootNode)
+                    -- local _, preRotY, _ = getRotation(rootNode)
+                    -- local preRot = math.deg(preRotY)
                     
                     snappedX, snappedZ, snappedRotDeg = ConstructionCoords.Snapping.applyLocalSnap(brush, rootNode, x, y, z, rotX, rotDeg, rotZ, tSnap, rSnap)
                     
-                    -- Verify position was set correctly
-                    local postX, postY, postZ = getTranslation(rootNode)
-                    local _, postRotY, _ = getRotation(rootNode)
-                    local postRot = math.deg(postRotY)
+                    -- Verify position was set correctly (DEBUG - disabled)
+                    -- local postX, postY, postZ = getTranslation(rootNode)
+                    -- local _, postRotY, _ = getRotation(rootNode)
+                    -- local postRot = math.deg(postRotY)
                     
-                    -- Debug logging every 10 frames for local mode (more frequent to catch issues)
-                    ConstructionCoords.DisplayCoords.debugData.frameCount = ConstructionCoords.DisplayCoords.debugData.frameCount + 1
-                    if ConstructionCoords.DisplayCoords.debugData.frameCount % 10 == 0 then
-                        print(string.format("[LOCAL DEBUG] Frame %d", ConstructionCoords.DisplayCoords.debugData.frameCount))
-                        print(string.format("  BEFORE snap: Pos(%.4f, %.4f) Rot:%.2f°", preX, preZ, preRot))
-                        print(string.format("  AFTER snap:  Pos(%.4f, %.4f) Rot:%.2f°", snappedX, snappedZ, snappedRotDeg))
-                        print(string.format("  READ BACK:   Pos(%.4f, %.4f) Rot:%.2f°", postX, postZ, postRot))
-                        print(string.format("  DELTA:       Pos(%.6f, %.6f) Rot:%.4f°", 
-                            math.abs(postX - snappedX), math.abs(postZ - snappedZ), math.abs(postRot - snappedRotDeg)))
-                    end
+                    -- Debug logging every 10 frames for local mode (more frequent to catch issues) (DEBUG - disabled)
+                    -- ConstructionCoords.DisplayCoords.debugData.frameCount = ConstructionCoords.DisplayCoords.debugData.frameCount + 1
+                    -- if ConstructionCoords.DisplayCoords.debugData.frameCount % 10 == 0 then
+                    --     print(string.format("[LOCAL DEBUG] Frame %d", ConstructionCoords.DisplayCoords.debugData.frameCount))
+                    --     print(string.format("  BEFORE snap: Pos(%.4f, %.4f) Rot:%.2f°", preX, preZ, preRot))
+                    --     print(string.format("  AFTER snap:  Pos(%.4f, %.4f) Rot:%.2f°", snappedX, snappedZ, snappedRotDeg))
+                    --     print(string.format("  READ BACK:   Pos(%.4f, %.4f) Rot:%.2f°", postX, postZ, postRot))
+                    --     print(string.format("  DELTA:       Pos(%.6f, %.6f) Rot:%.4f°", 
+                    --         math.abs(postX - snappedX), math.abs(postZ - snappedZ), math.abs(postRot - snappedRotDeg)))
+                    -- end
                 else
                     -- GLOBAL MODE: Game already snapped, just read the position
                     snappedX, _, snappedZ = getTranslation(rootNode)
                     snappedRotDeg = math.deg(select(2, getRotation(rootNode)))
                     
-                    -- Debug logging every 30 frames for global mode
-                    ConstructionCoords.DisplayCoords.debugData.frameCount = ConstructionCoords.DisplayCoords.debugData.frameCount + 1
-                    if ConstructionCoords.DisplayCoords.debugData.frameCount % 30 == 0 then
-                        print(string.format("[GLOBAL DEBUG] Frame %d - ID:%s Pos:(%.4f, %.4f) Rot:%.2f°", 
-                            ConstructionCoords.DisplayCoords.debugData.frameCount, uniqueId, snappedX, snappedZ, snappedRotDeg))
-                    end
+                    -- Debug logging every 30 frames for global mode (DEBUG - disabled)
+                    -- ConstructionCoords.DisplayCoords.debugData.frameCount = ConstructionCoords.DisplayCoords.debugData.frameCount + 1
+                    -- if ConstructionCoords.DisplayCoords.debugData.frameCount % 30 == 0 then
+                    --     print(string.format("[GLOBAL DEBUG] Frame %d - ID:%s Pos:(%.4f, %.4f) Rot:%.2f°", 
+                    --         ConstructionCoords.DisplayCoords.debugData.frameCount, uniqueId, snappedX, snappedZ, snappedRotDeg))
+                    -- end
                 end
 
                 -- Store for placement comparison
