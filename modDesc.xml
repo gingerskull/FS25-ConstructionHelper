@@ -6,6 +6,7 @@
     <title>
         <en>Construction Helper</en>
         <de>Bauhelfer</de>
+        <fr>Aide à la Construction</fr>
     </title>
     
     <description>
@@ -59,6 +60,31 @@ Bei der Platzierung mehrerer Objekte mit derselben Rotation (z.B. 30°) richten 
 GitHub link: https://github.com/gingerskull/FS25-ConstructionHelper
 
 ]]></de>
+        <fr><![CDATA[Aide à la Construction améliore l'expérience de placement des bâtiments en fournissant un affichage précis des coordonnées et des contrôles d'alignement avancés.
+
+FONCTIONNALITÉS :
+• Affichage des coordonnées en temps réel (position X, Z et rotation) dans l'interface de construction avec une précision de 3 décimales
+• Incréments d'alignement de position personnalisables : 0,1 m, 0,25 m, 0,5 m, 1,0 m, 2,5 m, 5,0 m
+• Incréments d'alignement de rotation personnalisables : 1°, 5°, 10°, 15°, 30°, 45°
+• Mode d'alignement local/relatif - toute la grille tourne avec l'angle du bâtiment pour un alignement parfaitement parallèle à n'importe quelle rotation
+
+RACCOURCIS PAR DÉFAUT :
+• LALT + 1 : Changer l'alignement de position - Modifier la taille de la grille d'alignement
+• LALT + 2 : Changer l'alignement de rotation - Modifier le pas de rotation
+• LALT + 3 : Basculer le mode d'alignement local - Passer de la grille mondiale à l'alignement relatif au bâtiment
+
+Tous les raccourcis peuvent être personnalisés dans Paramètres > Contrôles.
+
+MODE GLOBAL vs MODE LOCAL :
+• Mode Global : Le bâtiment s'aligne sur la grille de coordonnées mondiale X/Z (idéal pour les placements alignés à 90°)
+• Mode Local : Toute la grille d'alignement tourne avec le bâtiment - les objets placés aux mêmes coordonnées de grille locale formeront des lignes parfaitement parallèles dans l'espace mondial, quelle que soit l'angle de rotation. Idéal pour créer des rangées alignées de bâtiments sous n'importe quel angle (30°, 45°, 60°, etc.)
+
+COMMENT FONCTIONNE LE MODE LOCAL :
+Lors du placement de plusieurs objets avec la même rotation (par exemple 30°), ils s'aligneront en lignes droites parallèles entre elles. La grille tourne rigidement avec votre bâtiment, donc les objets placés aux positions de grille locale (3,0), (6,0), (9,0) formeront une ligne droite à 30° dans l'espace mondial.
+
+Lien GitHub : https://github.com/gingerskull/FS25-ConstructionHelper
+
+]]></fr>
     </description>
     
     <iconFilename>icon_ConstructionHelper.dds</iconFilename>
@@ -94,8 +120,8 @@ GitHub link: https://github.com/gingerskull/FS25-ConstructionHelper
     </inputBinding>
 
     <l10n>
-        <text name="input_CONSTRUCT_SNAP_CYCLE"><en>Cycle Position Snap</en><de>Positionsrasterung wechseln</de></text>
-        <text name="input_CONSTRUCT_ROT_SNAP_CYCLE"><en>Cycle Rotation Snap</en><de>Rotationsrasterung wechseln</de></text>
-        <text name="input_CONSTRUCT_LOCAL_SNAP_TOGGLE"><en>Toggle Local Snap Mode</en><de>Lokale Rasterung umschalten</de></text>
+        <text name="input_CONSTRUCT_SNAP_CYCLE"><en>Cycle Position Snap</en><de>Positionsrasterung wechseln</de><fr>Changer l'alignement de position</fr></text>
+        <text name="input_CONSTRUCT_ROT_SNAP_CYCLE"><en>Cycle Rotation Snap</en><de>Rotationsrasterung wechseln</de><fr>Changer l'alignement de rotation</fr></text>
+        <text name="input_CONSTRUCT_LOCAL_SNAP_TOGGLE"><en>Toggle Local Snap Mode</en><de>Lokale Rasterung umschalten</de><fr>Basculer le mode d'alignement local</fr></text>
     </l10n>
 </modDesc>
